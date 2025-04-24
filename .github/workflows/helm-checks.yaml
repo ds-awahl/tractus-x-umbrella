@@ -166,17 +166,18 @@ jobs:
       shell: bash
       run: hack/helm-dependencies.bash
 
+    - name: Install chart (data-persistence-layer-bundle)
+      run: |
+        cd charts/data-persistence-layer-bundle
+        helm install dpl --namespace dpl --create-namespace charts/data-persistence-layer-bundle
+        helm uninstall dpl --namespace dpl
+
     - name: Install chart and run tests (simple-data-backend)
       run: ct install --charts charts/simple-data-backend --target-branch ${{ steps.set-target-branch.outputs.target-branch }} --helm-extra-set-args "--set image.repository=kind-registry:5000/simple-data-backend --set image.tag=testing"
 
     - name: Install chart and run tests (tx-data-provider)
       run: ct install --charts charts/tx-data-provider --target-branch ${{ steps.set-target-branch.outputs.target-branch }}
 
-    - name: Install chart (data-persistence-layer-bundle)
-      run: |
-        cd charts/data-persistence-layer-bundle
-        helm install dpl --namespace dpl --create-namespace charts/data-persistence-layer-bundle
-        helm uninstall dpl --namespace dpl
 
     - name: Install chart for data exchange (umbrella)
       run: |
