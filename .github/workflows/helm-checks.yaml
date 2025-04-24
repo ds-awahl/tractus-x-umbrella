@@ -172,6 +172,12 @@ jobs:
     - name: Install chart and run tests (tx-data-provider)
       run: ct install --charts charts/tx-data-provider --target-branch ${{ steps.set-target-branch.outputs.target-branch }}
 
+    - name: Install data persistence layer bundle
+      run: |
+        cd charts/data-persistence-layer-bundle
+        helm install dpl --namespace dpl --create-namespace charts/data-persistence-layer-bundle
+        helm uninstall dpl --namespace dpl
+
     - name: Install chart for data exchange (umbrella)
       run: |
         helm dep up charts/tx-data-provider
