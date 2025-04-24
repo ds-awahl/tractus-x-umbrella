@@ -168,6 +168,7 @@ jobs:
 
     - name: Install chart (data-persistence-layer-bundle)
       run: |
+        cd charts
         ls
         helm dependency update
         helm install dpl --namespace dpl --create-namespace charts/data-persistence-layer-bundle
