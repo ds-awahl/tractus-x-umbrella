@@ -24,7 +24,7 @@ on:
     paths:
       - 'charts/**'
     branches:
-      - main
+      - feat/add-bundles-to-chart-release
 jobs:
   release:
     # depending on default permission settings for your org (contents being read-only or read-write for workloads), you will have to add permissions
