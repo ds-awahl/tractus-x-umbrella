@@ -103,6 +103,63 @@ entries:
     urls:
     - centralidp-4.0.1.tgz
     version: 4.0.1
+  data-persistence-layer-bundle:
+  - apiVersion: v2
+    created: "2025-04-28T12:53:41.042257339Z"
+    dependencies:
+    - condition: simple-data-backend.enabled
+      name: simple-data-backend
+      repository: https://eclipse-tractusx.github.io/charts/dev
+      version: 0.1.0
+    description: 'Helm chart for Capability Bundle: Data Persistence Layer '
+    digest: 979468705ab8d21b2b10a3fce7d7a2412b6330f43476d62b66f3104810f52482
+    name: data-persistence-layer-bundle
+    type: application
+    urls:
+    - https://github.com/ds-awahl/tractus-x-umbrella/releases/download/data-persistence-layer-bundle-1.0.0/data-persistence-layer-bundle-1.0.0.tgz
+    version: 1.0.0
+  dataspace-connector-bundle:
+  - apiVersion: v2
+    created: "2025-04-28T12:53:41.248382828Z"
+    dependencies:
+    - condition: tractusx-connector.enabled
+      name: tractusx-connector
+      repository: https://eclipse-tractusx.github.io/charts/dev
+      version: 0.9.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.2.1
+    - condition: vault.enabled
+      name: vault
+      repository: https://helm.releases.hashicorp.com
+      version: 0.27.0
+    description: 'Helm chart for Capability Bundle: Dataspace Connector '
+    digest: 754626340fc8799e7935eb58f0ff5654e0c5e0d3499055a548152218f8f02f15
+    name: dataspace-connector-bundle
+    type: application
+    urls:
+    - https://github.com/ds-awahl/tractus-x-umbrella/releases/download/dataspace-connector-bundle-1.0.1/dataspace-connector-bundle-1.0.1.tgz
+    version: 1.0.1
+  digital-twin-bundle:
+  - apiVersion: v2
+    created: "2025-04-28T12:53:41.517866897Z"
+    dependencies:
+    - condition: digital-twin-registry.enabled
+      name: digital-twin-registry
+      repository: https://eclipse-tractusx.github.io/charts/dev
+      version: 0.7.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.2.1
+    description: 'Helm chart for Capability Bundle: Digital Twin '
+    digest: 4ea99ffd50c09ccca2752dafb6ba0dbff3c4839b187836f8533d9a4198dc80ab
+    name: digital-twin-bundle
+    type: application
+    urls:
+    - https://github.com/ds-awahl/tractus-x-umbrella/releases/download/digital-twin-bundle-1.0.1/digital-twin-bundle-1.0.1.tgz
+    version: 1.0.1
   discoveryfinder:
   - apiVersion: v2
     appVersion: 0.4.0
@@ -122,6 +179,21 @@ entries:
     urls:
     - discoveryfinder-0.3.1.tgz
     version: 0.3.1
+  identity-and-trust-bundle:
+  - apiVersion: v2
+    created: "2025-04-28T12:53:41.749165844Z"
+    dependencies:
+    - condition: ssi-dim-wallet-stub.enabled
+      name: ssi-dim-wallet-stub
+      repository: https://eclipse-tractusx.github.io/charts/dev
+      version: 0.1.8
+    description: 'Helm chart for Capability Bundle: Identity and Trust '
+    digest: 566f44a1b847084e901c89702f0a3d73841a340241aa9d14fc97ffd71596b4cf
+    name: identity-and-trust-bundle
+    type: application
+    urls:
+    - https://github.com/ds-awahl/tractus-x-umbrella/releases/download/identity-and-trust-bundle-1.0.1/identity-and-trust-bundle-1.0.1.tgz
+    version: 1.0.1
   pgadmin4:
   - apiVersion: v1
     appVersion: "8.6"
@@ -721,4 +793,4 @@ entries:
     urls:
     - umbrella-2.6.0.tgz
     version: 2.6.0
-generated: "2025-04-24T14:54:52.524008678Z"
+generated: "2025-04-28T12:53:42.344280396Z"
